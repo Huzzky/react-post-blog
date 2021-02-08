@@ -1,7 +1,7 @@
 export const LogoHeader = () => {
   return (
     <div>
-      <img alt="Logo" />
+      <img src="logo.png" alt="Logo" width="32px" height="32px" />
     </div>
   )
 }

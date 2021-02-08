@@ -1,5 +1,5 @@
-import { LogoHeader } from './LogoHeader'
-import ProfileHeader from './ProfileHeader'
+import { LogoHeader } from '../Core/LogoHeader'
+import ProfileHeader from '../Core/ProfileHeader'
 
 export default function Header() {
   return (
@@ -7,7 +7,7 @@ export default function Header() {
       <div className="header__logo">
         <LogoHeader />
       </div>
-      <div className="header__profile profile">
+      <div className="header__profile">
         <ProfileHeader />
       </div>
     </div>
