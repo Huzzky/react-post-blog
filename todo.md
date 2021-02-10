@@ -1,11 +1,21 @@
 1)  Header
 
     1) Bar in Header with logo (non-style) [Х]
-    2) Auth in header (page) [ ]
-    3) sign in [ ]
+    2) sign in [x]
+    3) Validate sign in [ ]
+       1) Login Validate [ ]
+       2) Password Validate [ ]
     4) cookie in auth [ ]
+       1) set in redux user
+       2) set in cookie
     5) cookie in header [ ]
     6) sign up [ ]
+    7) Validate sign up [ ]
+       1) Validate First Name [ ]
+       2) Validate Second Name [ ]
+       3) Validate Nickname [ ]
+       4) Validate Email [ ]
+       5) Validate Password and Corfim Password [x]
 
 2) User Profile
    
