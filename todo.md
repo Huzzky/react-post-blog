@@ -2,9 +2,9 @@
 
     1) Bar in Header with logo (non-style) [Х]
     2) sign in [x]
-    3) Validate sign in [ ]
-       1) Login Validate [ ]
-       2) Password Validate [ ]
+    3) Validate sign in [x]
+       1) Login Validate [x]
+       2) Password Validate [x]
     4) cookie in auth [ ]
        1) set in redux user
        2) set in cookie
