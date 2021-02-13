@@ -1,57 +1,58 @@
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import { typeError } from '../../../const'
+import { Link } from 'react-router-dom'
+import { checkSignIn } from '../../../utils/checkSignIn'
 
 const SignInPage = () => {
   const [errorSignIn, setErrorSignIn] = useState(null)
-  // const [password, setPassword] = useState('')
+  const [password, setPassword] = useState('')
   // const [confirmPass, setConfirmPass] = useState('')
 
   const { register, handleSubmit, errors } = useForm()
 
   // @ send form on server
   const onSubmit = (data) => {
-    if (Object.keys(data) === 0) {
-      console.log(errors)
-    } else if (Object.keys(data).length > 0) {
-      let regTest = /\s/g.test(data['Nickname'].trim())
-      if (regTest === true) {
-        console.error('Space in login')
-        setErrorSignIn(typeError.loginSignInError)
-      } else {
-        console.log(data)
-      }
-    }
+    checkSignIn(data, setErrorSignIn, errors)
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <div>
       <div>
-        <input
-          type="text"
-          placeholder="Nickname"
-          name="Nickname"
-          ref={register({
-            required: true,
-            max: 254,
-            min: 2,
-            maxLength: 254,
-            pattern: /\w/i,
-          })}
-        />
-        {errorSignIn === typeError.loginSignInError ? (
-          <p>Ошибка в логине</p>
-        ) : null}
+        <Link to="/">Главная</Link>
       </div>
-      <input
-        type="password"
-        placeholder="Password"
-        name="Password"
-        ref={register({ max: 64, maxLength: 64 })}
-      />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <input
+            type="text"
+            placeholder="Nickname"
+            name="Nickname"
+            ref={register({
+              required: true,
+              max: 254,
+              min: 2,
+              maxLength: 254,
+              pattern: /\w/i,
+            })}
+          />
+          {errorSignIn === typeError.loginSignInError ? (
+            <p>Ошибка в логине</p>
+          ) : null}
+        </div>
+        <input
+          type="password"
+          placeholder="Password"
+          name="Password"
+          onChange={(event) => setPassword(event.currentTarget.value)}
+          ref={register({ max: 64, maxLength: 64 })}
+        />
 
-      <input type="submit" />
-    </form>
+        <input
+          type="submit"
+          disabled={password.length >= 8 ? null : 'disabled'}
+        />
+      </form>
+    </div>
   )
 
   // return (

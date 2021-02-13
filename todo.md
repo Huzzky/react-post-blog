@@ -5,12 +5,13 @@
     3) Validate sign in [x]
        1) Login Validate [x]
        2) Password Validate [x]
-    4) cookie in auth [ ]
+    4) Loader when auth user
+    5) cookie in auth [ ]
        1) set in redux user
        2) set in cookie
-    5) cookie in header [ ]
-    6) sign up [ ]
-    7) Validate sign up [ ]
+    6) cookie in header [ ]
+    7) sign up [ ]
+    8) Validate sign up [ ]
        1) Validate First Name [ ]
        2) Validate Second Name [ ]
        3) Validate Nickname [ ]
