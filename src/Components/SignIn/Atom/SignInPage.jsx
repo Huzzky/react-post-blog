@@ -54,7 +54,7 @@ const SignInPage = () => {
       </form>
       <div>
         <p>
-          Нет аккаунта? <Link to="/sign-up">Зарегестрируйтесь!</Link>
+          Нет аккаунта? <Link to="/sign-up">Зарегистрируйтесь!</Link>
         </p>
       </div>
     </div>

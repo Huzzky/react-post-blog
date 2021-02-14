@@ -1,22 +1,18 @@
 import './asserts/styles/App.css'
-import Header from './Components/Header/Atom/Header'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import SignInPage from './Components/SignIn/Atom/SignInPage'
+import { ErrorBandl } from './Components/Errors/ErrorBandl'
+import { Main } from './Components/Main'
+import Header from './Components/Header/Atom/Header'
 
 function App() {
   return (
     <Router>
+      <Header />
       <Switch>
-        <Route path="/sign-in">
-          <div className="App__sign-in">
-            <SignInPage />
-          </div>
-        </Route>
-        <Route path="/">
-          <div className="App">
-            <Header />
-          </div>
-        </Route>
+        <Route exact path="/" component={Main} />
+        <Route path="/sign-in" component={SignInPage} />
+        <Route path="*" component={ErrorBandl} />
       </Switch>
     </Router>
   )
