@@ -16,7 +16,7 @@ const ProfileHeader = ({ authUserBoolean }) => {
   ) : (
     <div className="profile">
       <p className="profile__sign-in-non-auth">
-        {/* <Link to="/sign-in">Войти</Link> */}
+        <Link to="/sign-in">Войти</Link>
       </p>
     </div>
   )

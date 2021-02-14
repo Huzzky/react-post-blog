@@ -4,6 +4,7 @@ import ProfileHeader from './ProfileHeader'
 import React from 'react'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 const mockStore = configureStore()
 
@@ -19,12 +20,29 @@ describe('test Core Header', () => {
       profileReducer: { authUserBoolean: false },
     }
     const store = mockStore(initState)
-    const component2 = render(
+    const componentUnAuthUser = render(
       <Provider store={store}>
-        <ProfileHeader />
+        <Router>
+          <ProfileHeader />
+        </Router>
       </Provider>,
     )
-    const profile = component2.find('.profile__sign-in-non-auth')
+    const profile = componentUnAuthUser.find('.profile__sign-in-non-auth')
+    expect(profile.length).toBe(1)
+  })
+  it('load Auth user', () => {
+    const initState = {
+      profileReducer: { authUserBoolean: true },
+    }
+    const store = mockStore(initState)
+    const componentAuthUser = render(
+      <Provider store={store}>
+        <Router>
+          <ProfileHeader />
+        </Router>
+      </Provider>,
+    )
+    const profile = componentAuthUser.find('.profile__avatar-user')
     expect(profile.length).toBe(1)
   })
 })
