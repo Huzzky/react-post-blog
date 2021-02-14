@@ -52,6 +52,11 @@ const SignInPage = () => {
           disabled={password.length >= 8 ? null : 'disabled'}
         />
       </form>
+      <div>
+        <p>
+          Нет аккаунта? <Link to="/sign-up">Зарегестрируйтесь!</Link>
+        </p>
+      </div>
     </div>
   )
 

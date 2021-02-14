@@ -1,16 +1,27 @@
-import { typeError } from '../const'
+const typeError = require('../const')
 
-export const checkSignIn = (data, setErrorSignIn, errors) => {
+const checkSignIn = (data, setErrorSignIn) => {
   if (Object.keys(data) === 0) {
-    console.log(errors)
+    return false
   } else if (Object.keys(data).length > 0) {
-    let regTest = /\s/g.test(data['Nickname'].trim())
+    let regTest = /\s/g.test(data.Nickname.trim())
+
     if (regTest === true) {
-      console.error('Space in login')
       setErrorSignIn(typeError.loginSignInError)
+      return false
     } else {
-      console.log(data)
-      setErrorSignIn(null)
+      let regTest = /\w/gi.test(data.Nickname)
+
+      if (regTest === true) {
+        setErrorSignIn(null)
+        return true
+      } else {
+        return false
+      }
     }
   }
+}
+
+module.exports = {
+  checkSignIn,
 }
