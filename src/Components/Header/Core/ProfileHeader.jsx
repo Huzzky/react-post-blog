@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { AvatarProfile } from './AvatarProfile'
+import { AvatarProfile } from './AvatarProfile.jsx'
+import React from 'react'
 
 const ProfileHeader = ({ authUserBoolean }) => {
   return authUserBoolean ? (
@@ -15,7 +16,7 @@ const ProfileHeader = ({ authUserBoolean }) => {
   ) : (
     <div className="profile">
       <p className="profile__sign-in-non-auth">
-        <Link to="/sign-in">Войти</Link>
+        {/* <Link to="/sign-in">Войти</Link> */}
       </p>
     </div>
   )

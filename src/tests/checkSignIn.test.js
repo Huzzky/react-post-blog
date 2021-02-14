@@ -1,4 +1,5 @@
-const { checkSignIn } = require('../utils/checkSignIn')
+// const { checkSignIn } = require('../utils/checkSignIn')
+import { checkSignIn } from '../utils/checkSignIn'
 
 const dataNormal = {
   Nickname: 'fadsfads',
@@ -18,14 +19,17 @@ const dataWithProblemOtherLang = {
 const setErrorSignIn = (a) => {
   return 0
 }
-test('check login with normal login', () => {
-  expect(checkSignIn(dataNormal, setErrorSignIn)).toBeTruthy()
-})
 
-test('check login with problem login', () => {
-  expect(checkSignIn(dataWithProblem, setErrorSignIn)).toBeFalsy()
-})
+describe('Login', () => {
+  test('check login with normal login', () => {
+    expect(checkSignIn(dataNormal, setErrorSignIn)).toBeTruthy()
+  })
 
-test('check login with problem login(non eng lang)', () => {
-  expect(checkSignIn(dataWithProblemOtherLang, setErrorSignIn)).toBeFalsy()
+  test('check login with problem login', () => {
+    expect(checkSignIn(dataWithProblem, setErrorSignIn)).toBeFalsy()
+  })
+
+  test('check login with problem login(non eng lang)', () => {
+    expect(checkSignIn(dataWithProblemOtherLang, setErrorSignIn)).toBeFalsy()
+  })
 })
