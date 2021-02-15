@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 import { AvatarProfile } from './AvatarProfile.jsx'
 import React from 'react'
 
-const ProfileHeader = ({ authUserBoolean }) => {
+const ProfileHeader = ({ authUserBoolean, nameUser }) => {
   return authUserBoolean ? (
     <div className="profile">
       <div className="profile__avatar-user avatar-user">
         <AvatarProfile />
       </div>
       <div className="profile__card-user card-user">
-        <p className="card-user__name">User12345</p>
+        <p className="card-user__name">{nameUser}</p>
       </div>
     </div>
   ) : (

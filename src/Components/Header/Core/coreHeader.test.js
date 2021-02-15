@@ -30,9 +30,9 @@ describe('test Core Header', () => {
     const profile = componentUnAuthUser.find('.profile__sign-in-non-auth')
     expect(profile.length).toBe(1)
   })
-  it('load Auth user', () => {
+  it('load Auth user avatar', () => {
     const initState = {
-      profileReducer: { authUserBoolean: true },
+      profileReducer: { authUserBoolean: true, nameUser: 'Vladislav' },
     }
     const store = mockStore(initState)
     const componentAuthUser = render(
@@ -43,6 +43,21 @@ describe('test Core Header', () => {
       </Provider>,
     )
     const profile = componentAuthUser.find('.profile__avatar-user')
+    expect(profile.length).toBe(1)
+  })
+  it('load Auth user userName', () => {
+    const initState = {
+      profileReducer: { authUserBoolean: true, nameUser: 'Vladislav' },
+    }
+    const store = mockStore(initState)
+    const componentAuthUser = render(
+      <Provider store={store}>
+        <Router>
+          <ProfileHeader />
+        </Router>
+      </Provider>,
+    )
+    const profile = componentAuthUser.find('.card-user__name')
     expect(profile.length).toBe(1)
   })
 })
